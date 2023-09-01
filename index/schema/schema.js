@@ -1,5 +1,5 @@
 // import { graphqlHTTP } from 'express-graphql';
-const { graphql } = require('graphql');
+const  graphql  = require('graphql');
 const _ = require('lodash')
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
