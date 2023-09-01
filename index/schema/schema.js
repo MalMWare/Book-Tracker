@@ -1,5 +1,6 @@
 // import { graphqlHTTP } from 'express-graphql';
 const { graphql } = require('graphql');
+const _ = require('lodash')
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 
@@ -28,7 +29,7 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLString }},
             resolve(parent, args){
                 //code to get data from database/other source
-                
+                return_.find(books,{ id: args.id });
             }
         }
     }
