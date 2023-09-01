@@ -12,7 +12,7 @@ app.use(cors())
 //binds express with graphql
 app.use('/graphql', graphqlHTTP({
     schema,
-    //graphiql:true
+    graphiql:true
 }));
 
 app.listen(3000, () => {
