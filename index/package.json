@@ -3,8 +3,9 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-graphql": "^0.12.0",
-    "graphql": "^0.13.0",
+    "graphql": "^15.8.0",
     "graphql-http": "^1.22.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.15.00",
+    "sudo n": "0.12.7"
   }
 }
