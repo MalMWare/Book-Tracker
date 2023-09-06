@@ -3,13 +3,19 @@ const  graphql  = require('graphql');
 const _ = require('lodash')
 //import { graphqlLodash } from 'graphql-lodash';
 global._ = _
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt } = graphql;
+const { 
+    GraphQLObjectType, 
+    GraphQLString, 
+    GraphQLSchema, 
+    GraphQLID, 
+    GraphQLInt 
+} = graphql;
 
 //Dummy data
 let books = [
-    { name: 'Attack on Titan Vol. 01', genre: 'Horror', id: '1'},
-    { name: 'Lore Olympus', genre: 'Fantasy', id: '2'},
-    { name: 'The Song of Achilles', genre: 'Historical Fiction', id: '3'},
+    { name: 'Attack on Titan Vol. 01', genre: 'Horror', id: '1', authorId: '1'},
+    { name: 'Lore Olympus', genre: 'Fantasy', id: '2', authorId: '2'},
+    { name: 'The Song of Achilles', genre: 'Historical Fiction', id: '3', authorId: '3'},
 ]
 
 let authors = [
@@ -23,7 +29,14 @@ const BookType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        genre: { type: GraphQLString }
+        genre: { type: GraphQLString },
+        author: {
+            type: AuthorType,
+            resolve(parent, args){
+                console.log(parent);
+                return _.find(authors, { id: parent.authorId });
+            }
+        }
     })
 });
 
