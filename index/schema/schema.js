@@ -12,6 +12,12 @@ let books = [
     { name: 'The Song of Achilles', genre: 'Historical Fiction', id: '3'},
 ]
 
+let authors = [
+    { name: 'Hajime Isayama', age: 37, id: '1' },
+    { name: 'Rachel Smythe', age: 37, id: '2' },
+    { name: 'Madeline Miller', age: 45, id: '3' }
+]
+
 const BookType = new GraphQLObjectType({
     name: 'Book',
     fields: () => ({
