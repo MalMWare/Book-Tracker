@@ -8,14 +8,18 @@ const {
     GraphQLString, 
     GraphQLSchema, 
     GraphQLID, 
-    GraphQLInt 
+    GraphQLInt,
+    GraphQLList
 } = graphql;
 
 //Dummy data
 let books = [
-    { name: 'Attack on Titan Vol. 01', genre: 'Horror', id: '1', authorId: '1'},
-    { name: 'Lore Olympus', genre: 'Fantasy', id: '2', authorId: '2'},
-    { name: 'The Song of Achilles', genre: 'Historical Fiction', id: '3', authorId: '3'},
+    { name: 'Attack on Titan Vol. 01', genre: 'Horror', id: '1', authorId: '1' },
+    { name: 'Lore Olympus', genre: 'Fantasy', id: '2', authorId: '2' },
+    { name: 'The Song of Achilles', genre: 'Historical Fiction', id: '3', authorId: '3' },
+    { name: 'Attack on Titan Vol. 02', genre: 'Horror', id: '4', authorId: '1' },
+    { name: 'Attack on Titan Vol. 03', genre: 'Horror', id: '5', authorId: '1' },
+    { name: 'Circe', genre: 'Fantasy', id: '6', authorId: '3' }
 ]
 
 let authors = [
@@ -45,7 +49,14 @@ const AuthorType = new GraphQLObjectType({
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        age: { type: GraphQLInt }
+        age: { type: GraphQLInt },
+        books: {
+            type: new GraphQLList(BookType),
+            resolve(parent, args){
+                console.log(parent)
+                return _.filter(books, { authorId: parent.id })
+            }
+        }
     })
 })
 
