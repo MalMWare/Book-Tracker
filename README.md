@@ -1,0 +1,2 @@
+This is a project I am creating as a way for me to study Graphql. 
+The purpose of this application is to make a MERN stack using Graphql. Book-tracker was originally created by NetNinja. However, that project uses many tools that are depricated so I am trying to update the project and create my own at the same time. 
