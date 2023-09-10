@@ -35,7 +35,7 @@ const BookType = new GraphQLObjectType({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
         genre: { type: GraphQLString },
-        pages: { type: GraphQLString },
+        pages: { type: GraphQLInt },
         published: { type: GraphQLString },
         awards: { type: GraphQLString },
         author: {
