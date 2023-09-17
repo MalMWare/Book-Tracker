@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors')
+require('dotenv').config();
 const schema = require('./schema/schema')
 const { graphqlHTTP } = require('express-graphql');
+const port = process.env.PORT 
 const app = express()
-const port = process.env.PORT || 3000;
 
 //allow cross origin requests
 app.use(cors())
@@ -13,9 +14,9 @@ app.use(cors())
 //binds express with graphql
 app.use('/graphql', graphqlHTTP({
     schema,
-    graphiql:true
+    graphiql: process.env.NODE_ENV = 'development'
 }));
 
 app.listen(port, () => {
-    console.log(`Rocking on port ${port}`)
+    console.log(`Rocking on port: ${port}`)
 })
