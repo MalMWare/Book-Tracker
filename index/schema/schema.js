@@ -1,8 +1,5 @@
-// import { graphqlHTTP } from 'express-graphql';
 const { books, authors } = require('./sampleData')
-const  graphql  = require('graphql');
 const _ = require('lodash')
-//import { graphqlLodash } from 'graphql-lodash';
 global._ = _
 const { 
     GraphQLObjectType, 
@@ -11,7 +8,7 @@ const {
     GraphQLID, 
     GraphQLInt,
     GraphQLList
-} = graphql;
+} = require('graphql');
 
 const BookType = new GraphQLObjectType({
     name: 'Book',
