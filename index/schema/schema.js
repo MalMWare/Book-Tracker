@@ -1,6 +1,11 @@
-const { books, authors } = require('./sampleData')
+//const { books, authors } = require('./sampleData')
 const _ = require('lodash')
 global._ = _
+
+//Mongoose Models
+const Book = require('../models/Book');
+const Author = require('../models/Author')
+
 const { 
     GraphQLObjectType, 
     GraphQLString, 
