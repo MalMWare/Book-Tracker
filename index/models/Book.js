@@ -16,6 +16,10 @@ const BookSchema = new mongoose.Schema({
     awards: {
         type: String,
     },
+    authorId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Author'
+    }
 });
 
 module.exports = mongoose.model('Book', BookSchema)
