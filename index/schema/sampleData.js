@@ -15,4 +15,18 @@ let authors = [
     { name: 'Madeline Miller', age: 45, nationality: 'United States of America (American)',id: '3' }
 ]
 
+// {
+//     authors{
+//         name
+//         age
+//         nationality
+//         books{
+//           name
+//           pages
+//           published
+//           awards
+//         }
+//     }
+//   }
+
 module.exports = { books, authors }
