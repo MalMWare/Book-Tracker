@@ -103,7 +103,7 @@ const mutation = new GraphQLObjectType({
                     type: GraphQLNonNull(GraphQLString)
                 },
                 pages: {
-                    type: GraphQLString
+                    type: GraphQLInt
                 },
                 published: {
                     type: GraphQLNonNull(GraphQLString)
@@ -136,22 +136,24 @@ const mutation = new GraphQLObjectType({
                     type: GraphQLNonNull(GraphQLString)
                 },
                 age: {
-                    type: GraphQLString
+                    type: GraphQLInt
                 },
                 nationality: {
                     type: GraphQLString
                 },
-                bookId: {
+                authorId: {
                     type: GraphQLNonNull(GraphQLID)
                 },
             },
             resolve(parent, args) {
                 const author = new Author({
                     name: args.name,
-                    age: args.name,
+                    age: args.age,
                     nationality: args.nationality,
-                    bookId: args.bookId
-                })
+                    //authorId: args.bookId
+                });
+
+                return author.save()
             }
         }
     }
